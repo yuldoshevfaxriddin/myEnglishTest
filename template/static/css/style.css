@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90vw;
+    display: flex;
+    margin: auto;
+    height: 100hv;
+    margin-top: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+#time-viwer {
+    position: sticky;
+    top: 10px;
+    right: 20px;
+    text-align: center;
+    width: 100px;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.container .quesitions section {
+    border: 1px solid rgb(164, 164, 187);
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 24px;
+}
+
+.container .quesitions section .quesition-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .quesitions section .quesition-title h4 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.main .quesitions .quesition-items ol {
+    padding-left: 40px;
+    padding-right: 10px;
+}
+
+.end-test .menu {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.end-test .menu button{
+    height: 1.8rem;
+    width: 6rem;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer
+}
+.end-test .menu  button:hover{
+    transition: .3s all;
+    box-shadow: 2px 2px 2px rgb(130, 118, 118);
+}
+.end-test .menu .chiqish button{
+    background-color: red;
+    color: white;
+}
+.end-test .menu .yakunlash button{
+    background-color: blue;
+    color: white;
+}
+
+.answer{
+    width: 100px;
+    background-color: blue;
+    display: flex;
+    margin: 5px;
+    width: 80vw;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+.answer span{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    margin: 3px;
+}
+.answer .box > *{
+    padding: 10px;
+}
+.answer .box table th,td {
+    padding-left: 8px;
+}
+.wrong{
+    background-color: red;
+}
+.correct{
+    background-color: green;
+}
