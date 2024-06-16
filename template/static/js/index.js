@@ -77,28 +77,26 @@ let dataJson ;
                                             <p>${question}</p>
                                         </div>
                                         <div class="variants">
-                                            <ol type="A">
-                                                <li >
+                                                <p >
                                                     <input type="radio" name="b1-${id}" id="b1-${id}-a" >
                                                     <label for="b1-${id}-a">${a}</label>
-                                                </li>
-                                                <li>
+                                                </p>
+                                                <p>
                                                     <input type="radio" name="b1-${id}" id="b1-${id}-b">
                                                     <label for="b1-${id}-b">${b}</label>
-                                                </li>
-                                                <li>
+                                                </p>
+                                                <p>
                                                     <input type="radio" name="b1-${id}" id="b1-${id}-c">
                                                     <label for="b1-${id}-c">${c}</label>
-                                                </li>
-                                                <li>
+                                                </p>
+                                                <p>
                                                     <input type="radio" name="b1-${id}" id="b1-${id}-d">
                                                     <label for="b1-${id}-d">${d}</label>
-                                                </li>
-                                            </ol>
+                                                </p>
                                         </div>
                                     </div></li>`;
     let joinTableNumber = `<th>${id}</th>`;
-    let joinTableSpan = `<td><a href="#question-${id}"><span></span></a></td>`;
+    let joinTableSpan = `<td><a href="#question-${id}"><span id="span-${id}" ></span></a></td>`;
     quesitions_items.insertAdjacentHTML('beforeend',joinHtmlQuesition);
     table_th.insertAdjacentHTML('beforeend',joinTableNumber);
     table_td_span.insertAdjacentHTML('beforeend',joinTableSpan);
@@ -109,9 +107,20 @@ function generateData(){
         insertQuesition(dataJson[i].question,dataJson[i].answer1,dataJson[i].answer2,dataJson[i].answer3,dataJson[i].answer4,i+1)
     }
 }
-
+var answer_data = {};
 $(document).ready(function(){
     dataJson = $.parseJSON(dataText)
     generateData()
-    $('')
+    $('.quesition-items input').on('click',function(event){
+        let main_id = $(this).attr('id');
+        let current_id = main_id.split("-")[1];
+        let temp_span = '#span-'+current_id;
+        console.log('salom',main_id);
+        $(temp_span).css("background-color", "green");
+        event.stopPropagation();
+        // event.preventDefault();
+        console.log(answer_data[main_id.split("-").join('_')])
+        answer_data['quesition_'+current_id] = main_id;
+        console.log('ok',answer_data)
+    })
 });
